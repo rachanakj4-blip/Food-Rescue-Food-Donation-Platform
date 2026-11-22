@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Request Food | Food Rescue{% endblock %}
+{% block content %}
+<section class="form-page">
+    <div class="form-intro"><span class="eyebrow">COMMUNITY REQUEST</span><h1>Request food</h1><p>Send your contact details to the donor to express interest in this donation.</p>
+        <div class="side-tip"><strong>{{ donation.food_name }}</strong><br>Quantity: {{ donation.quantity }}<br>Pickup: {{ donation.location }}<br>Donor: {{ donation.donor_name }}</div>
+    </div>
+    <form class="form-card" method="POST">
+        <label>Your name *<input name="requester_name" required placeholder="Enter your name"></label>
+        <label>Your contact details *<input name="contact" required placeholder="Phone number or email"></label>
+        <label>Message<textarea name="message" rows="4" placeholder="Optional message to the donor"></textarea></label>
+        <button class="btn btn-primary full-width" type="submit">Send food request</button>
+    </form>
+</section>
+{% endblock %}

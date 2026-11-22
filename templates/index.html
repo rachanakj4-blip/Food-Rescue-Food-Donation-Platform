@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Food Rescue | Share Food, Save Lives{% endblock %}
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <span class="eyebrow">GOOD FOOD DESERVES A SECOND CHANCE</span>
+        <h1>Share food.<br><span>Spread kindness.</span></h1>
+        <p>Connect people and organisations with surplus food to those who can use it. A small act of sharing can make a meaningful difference.</p>
+        <div class="hero-actions">
+            <a class="btn btn-primary" href="{{ url_for('donate') }}">Donate Food</a>
+            <a class="btn btn-outline" href="{{ url_for('donations') }}">Find Food</a>
+        </div>
+    </div>
+    <div class="hero-art" aria-label="Food sharing illustration">
+        <div class="food-circle">🥗</div>
+        <div class="floating-note note-one">♻ Reduce food waste</div>
+        <div class="floating-note note-two">♥ Share with care</div>
+    </div>
+</section>
+
+<section class="stats">
+    <div><strong>{{ donation_count }}</strong><span>Food donations listed</span></div>
+    <div><strong>1</strong><span>Shared community</span></div>
+    <div><strong>∞</strong><span>Reasons to care</span></div>
+</section>
+
+<section class="section">
+    <div class="section-heading">
+        <span class="eyebrow">HOW IT WORKS</span>
+        <h2>Sharing food is simple</h2>
+        <p>Three simple steps bring surplus food closer to someone who needs it.</p>
+    </div>
+    <div class="steps">
+        <article class="step-card"><div class="step-icon">🍱</div><h3>1. List food</h3><p>Donors add details about safe, fresh surplus food available for sharing.</p></article>
+        <article class="step-card"><div class="step-icon">🔎</div><h3>2. Find food</h3><p>Visitors browse available food and check its quantity and pickup location.</p></article>
+        <article class="step-card"><div class="step-icon">🤝</div><h3>3. Send a request</h3><p>Interested people submit a request and coordinate directly with the donor.</p></article>
+    </div>
+</section>
+<section class="callout">
+    <div><h2>Have extra food to share?</h2><p>Make it available to someone in your community.</p></div>
+    <a class="btn btn-light" href="{{ url_for('donate') }}">Post a donation →</a>
+</section>
+{% endblock %}

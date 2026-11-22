@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Donate Food | Food Rescue{% endblock %}
+{% block content %}
+<section class="form-page">
+    <div class="form-intro"><span class="eyebrow">MAKE A DIFFERENCE</span><h1>Donate food</h1><p>Enter the details of the food you would like to share. Required fields are marked with *.</p><div class="side-tip">💚 Please list only food that has been stored and handled safely.</div></div>
+    <form class="form-card" method="POST">
+        <label>Donor name *<input name="donor_name" required placeholder="Your name or organisation"></label>
+        <label>Food name *<input name="food_name" required placeholder="E.g. Vegetable rice, bread"></label>
+        <div class="form-row">
+            <label>Quantity *<input name="quantity" required placeholder="E.g. 10 meal boxes"></label>
+            <label>Available until *<input name="expiry_time" required type="datetime-local"></label>
+        </div>
+        <label>Pickup location *<input name="location" required placeholder="Area, street or pickup point"></label>
+        <label>Contact number or email *<input name="contact" required placeholder="How can someone contact you?"></label>
+        <label>Additional details<textarea name="description" rows="3" placeholder="Optional details about the food"></textarea></label>
+        <button class="btn btn-primary full-width" type="submit">Submit donation</button>
+    </form>
+</section>
+{% endblock %}

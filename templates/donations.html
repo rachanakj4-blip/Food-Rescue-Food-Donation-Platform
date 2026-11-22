@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Available Food | Food Rescue{% endblock %}
+{% block content %}
+<section class="section listing-section">
+    <div class="section-heading">
+        <span class="eyebrow">COMMUNITY FOOD BOARD</span>
+        <h1>Available food</h1>
+        <p>Browse food shared by donors in the community.</p>
+        <a class="btn btn-primary" href="{{ url_for('donate') }}">+ Add a donation</a>
+    </div>
+    {% if donations %}
+    <div class="donation-grid">
+        {% for item in donations %}
+        <article class="donation-card">
+            <div class="food-card-top"><span>🥘</span><small>DONATION #{{ item.id }}</small></div>
+            <h3>{{ item.food_name }}</h3>
+            <p>{{ item.description or "Food shared by a community donor." }}</p>
+            <ul class="details-list">
+                <li>📦 <strong>Quantity:</strong> {{ item.quantity }}</li>
+                <li>📍 <strong>Location:</strong> {{ item.location }}</li>
+                <li>⏰ <strong>Available until:</strong> {{ item.expiry_time.replace("T", " ") }}</li>
+                <li>🙋 <strong>Donor:</strong> {{ item.donor_name }}</li>
+            </ul>
+            <a class="btn btn-primary full-width" href="{{ url_for('request_food', donation_id=item.id) }}">Request this food</a>
+        </article>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-state"><div>🍽️</div><h2>No donations yet</h2><p>Be the first person to share food with your community.</p><a class="btn btn-primary" href="{{ url_for('donate') }}">Donate food</a></div>
+    {% endif %}
+</section>
+{% endblock %}
